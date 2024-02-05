@@ -40,7 +40,7 @@ CSRF_TRUSTED_ORIGINS = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    "https://*.onrender.com",
+    'https://site-to-rss-feed.onrender.com',
 ]
 
 # Application definition
