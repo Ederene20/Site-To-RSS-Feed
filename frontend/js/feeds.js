@@ -2,7 +2,7 @@ function get_feeds() {
     let response;
     let xhr = new XMLHttpRequest();
     let data = {};
-    xhr.open("get", "http://127.0.0.1:8000/feeds/")
+    xhr.open("get", "https://site-to-rss-feed-backend-api.onrender.com/feeds/")
     xhr.setRequestHeader("Authorization", "Bearer " + localStorage.getItem("Access"));
     xhr.setRequestHeader("Content-Type", "application/json");
 

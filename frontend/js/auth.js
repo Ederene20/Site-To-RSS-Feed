@@ -8,7 +8,7 @@ function register() {
         "email": email,
         "password": password
     }
-    xhr.open("post", "http://127.0.0.1:8000/auth/register/");
+    xhr.open("post", "https://site-to-rss-feed-backend-api.onrender.com/auth/register/");
     xhr.setRequestHeader("Content-Type", "application/json");
 
     xhr.onload = function() {
@@ -39,7 +39,7 @@ function login() {
         "email": email,
         "password": password
     }
-    xhr.open("post", "http://127.0.0.1:8000/auth/login/");
+    xhr.open("post", "https://site-to-rss-feed-backend-api.onrender.com/auth/login/");
     xhr.setRequestHeader("Content-Type", "application/json");
 
     xhr.onload = function() {
@@ -69,7 +69,7 @@ function refresh_token() {
         "refresh": localStorage.getItem("Refresh")
     }
 
-    xhr.open("post", "http://127.0.0.1:8000/auth/refresh/");
+    xhr.open("post", "https://site-to-rss-feed-backend-api.onrender.com/auth/refresh/");
     xhr.setRequestHeader("Content-Type", "application/json");
 
     xhr.onload = function() {

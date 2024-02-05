@@ -16,7 +16,7 @@ function reload() {
     let data = {
         "url": url
     }
-    xhr.open("post", "http://127.0.0.1:8000/")
+    xhr.open("post", "https://site-to-rss-feed-backend-api.onrender.com/")
     xhr.setRequestHeader("Content-Type", "application/json");
 
     xhr.onload = function() {
@@ -50,7 +50,7 @@ function extract_pattern() {
         "search_pattern": search_pattern
     }
 
-    xhr.open("post", "http://127.0.0.1:8000/extract_pattern/");
+    xhr.open("post", "https://site-to-rss-feed-backend-api.onrender.com/extract_pattern/");
     xhr.setRequestHeader("Content-Type", "application/json");
 
     xhr.onload = function() {
@@ -63,7 +63,6 @@ function extract_pattern() {
             let info_for_step_three = document.getElementById("info_for_step_three");
             let extraction_status = document.getElementById("extraction_status")
 
-            // snippet.value = response;
             info_for_step_three.innerHTML = "Below is a list of extracted text snippets ({%N}). You can reference them when setting up item properties (see next step)."
 
             response.forEach(element => {
@@ -107,7 +106,7 @@ function get_preview() {
 
     console.log(data);
 
-    xhr.open("post", "http://127.0.0.1:8000/preview/");
+    xhr.open("post", "https://site-to-rss-feed-backend-api.onrender.com/preview/");
     xhr.setRequestHeader("Content-Type", "application/json");
 
     xhr.onload = function() {
