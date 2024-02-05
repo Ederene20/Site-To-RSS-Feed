@@ -165,8 +165,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-#CORS_ALLOWED_ORIGINS = [
-#    'https://site-to-rss-feed.onrender.com',
-#]
+CORS_ALLOWED_ORIGINS = [
+    'https://site-to-rss-feed.onrender.com',
+]
 
-CORS_ALLOW_ALL_ORIGINS = True
