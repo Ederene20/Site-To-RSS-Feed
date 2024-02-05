@@ -31,8 +31,6 @@ def get_search_pattern(request):
 
     result = get_matches(html_code, global_search_pattern, search_pattern)
 
-    print(result)
-
     return Response(result)
 
 
@@ -92,9 +90,7 @@ def get_matches(html_code, global_search_pattern, search_pattern):
     index = 1
 
     for match in matches:
-        print(match)
         count = 1
-        print(index)
 
         snippet = dict()
         snippet["Item"] = index
