@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site to Rss Feed</title>
+    <link rel="stylesheet" href="css/feed.css">
+
+    <script src="js/feed.js"></script>
+</head>
+<body>
+    <h3>Step 1. Specify source page address (URL)</h5>
+    <form action="" id="first_form">
+        <div id="urlarea">
+            <label for="url">Address* :</label>
+            <input type="text" name="" placeholder="" id="url" numberoflines="30">
+        </div>
+
+        <div>
+            <p id="reload_status" class="status"></p>
+            <input type="submit" value="Reload" onclick="reload()">
+        </div>
+
+        <p id="info_for_step_two"></p>
+
+        <label for="htmlcode">Page Source:</label>
+        <textarea name="" id="html_code" cols="30" rows="10" placeholder="" readonly></textarea>
+    </form>
+
+    <h3>Step 2. Define extraction rules</h3>
+    <form action="" id="second_form">
+        <label for="">Global Search Pattern:</label>
+        <textarea name="" id="global_search_pattern" placeholder=""></textarea>
+
+        <br>
+        
+        <label for="">Item (repeatable) Search Pattern:</label>
+        <textarea name="" id="search_pattern" cols="30" rows="10" placeholder=""></textarea>
+
+        <div>
+            <p id="extraction_status" class="status"></p>
+            <input type="submit" value="Extract" onclick="extract_pattern()">
+        </div>
+
+        <br>
+
+        <p id="info_for_step_three"></p>
+        
+        <label for="snippet">Clipped Data:</label>
+        <textarea name="" id="snippet" cols="30" rows="10" placeholder=""></textarea>
+    </form>
+
+    <h3>Step 3. Define Output format</h3>
+    <p>RSS feed properties</p>
+
+    <form action="" id="third_form">
+        <label for="feed_title">Feed Title* :</label>
+        <input type="text" name="" placeholder="" id="feed_title" numberoflines="30">
+        <br>
+        <label for="feed_link">Feed Link* :</label>
+        <input type="text" name="" placeholder="" id="feed_link" numberoflines="30">
+        <br>
+        <label for="feed_description">Feed Description :</label>
+        <textarea name="" id="feed_description" cols="30" rows="10" placeholder=""></textarea>
+
+        <p>RSS item properties</p>
+        
+        <label for="item_title_template">Item Title Template* :</label>
+        <input type="text" name="" placeholder="" id="item_title_template" numberoflines="30">
+        <br>
+        <label for="item_link_template">Item Link Template* :</label>
+        <input type="text" name="" placeholder="" id="item_link_template" numberoflines="30">
+        <br>
+        <label for="item_content_template">Item Content Template* :</label>
+        <input type="text" name="" placeholder="" id="item_content_template" numberoflines="30">
+        <br>
+        <input type="submit" value="Preview" onclick="get_preview()">
+
+        <br>
+        <label for="preview">Feed Preview :</label>
+        <div id="preview">
+        </div>
+    </form>
+</body>
+</html>
