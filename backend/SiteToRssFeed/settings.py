@@ -29,8 +29,7 @@ SECRET_KEY = os.environ.get(
 ENV = os.environ.get("ENV")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = False if ENV in ["PROD", "STAG"] else True
-DEBUG = True # temporary. Just want to fix a cors bug
+DEBUG = False if ENV in ["PROD", "STAG"] else True
 
 ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", "*").split(" ")
 
