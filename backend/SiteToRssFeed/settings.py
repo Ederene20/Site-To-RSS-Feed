@@ -9,8 +9,10 @@ https://docs.djangoproject.com/en/5.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
-
+import os
 from pathlib import Path
+
+from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,13 +22,26 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-nd6b6dc(^q))efjcuvo%y)k$3vq_@4x38w9jco0rdlg10udd0@"
+SECRET_KEY = os.environ.get(
+    "SECRET_KEY", "$-1l$awc0@#5n6^u3f_v=2dad0nd@o24=fmqtqn^bc35q1i*8+"
+)
+
+ENV = os.environ.get("ENV")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False if ENV in ["PROD", "STAG"] else True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", "*").split(" ")
 
+CSRF_TRUSTED_ORIGINS = [
+    "https://*.onrender.com/",
+    "http://*.127.0.0.1",
+    "http://*.localhost",
+]
+
+CORS_ALLOWED_ORIGINS = [
+    "https://*.onrender.com",
+]
 
 # Application definition
 
@@ -58,14 +73,6 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
-
-#CORS_ALLOWED_ORIGINS = [
-#    "http://localhost",
-#    "*"
-#]
-
-CORS_ALLOW_ALL_ORIGINS = True
-CORS_ALLOW_CREDENTIALS = True
 
 ROOT_URLCONF = "SiteToRssFeed.urls"
 
@@ -105,6 +112,16 @@ DATABASES = {
         "NAME": BASE_DIR / "database.sqlite3",
     }
 }
+
+if ENV == "PROD":
+    DATABASES["default"] = {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": os.getenv("DATABASE_NAME", "sitetorssfeed"),
+        "USER": os.getenv("DATABASE_USER", "sitetorssfeed_user"),
+        "PASSWORD": os.getenv("DATABASE_PASSWORD", "wCh29&HE&T83"),
+        "HOST": os.environ.get("DATABASE_HOST", "kagi_db"),
+        "PORT": os.getenv("DATABASE_PORT", "5432"),
+    }
 
 
 # Password validation
